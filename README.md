@@ -25,8 +25,6 @@ A React-based SQL playground that simulates query execution with mock data, desi
 | Package | Purpose | Version |
 |---------|---------|---------|
 | `react-window` | Virtualized table rendering | ^3.2.4 |
-| `date-fns` | Timestamp formatting | ^2.29.3 |
-| `localforage` | Persistent storage | ^1.10.0 |
 
 ## ⚡ Performance Metrics
 ### Load Times
