@@ -69,7 +69,7 @@ const toggleTheme = useCallback(() => {
    useKeyboardShortcuts(handleRunQuery);
 ```
 
-### Data Structure Design
+### 4. Data Structure Design
 ```bash
 const sampleQueries = [
   {
