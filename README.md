@@ -1,35 +1,112 @@
-# SQL Query Runner
+# 💽 SQL Query Runner
 
-![Alt Text](https://drive.google.com/uc?export=view&id=1Arb1_jd7KASAkx8Zg0joAc2Rv4YNorwV)
+![Project Banner](https://drive.google.com/uc?export=view&id=1Arb1_jd7KASAkx8Zg0joAc2Rv4YNorwV)
 
+## 🌟 Project Overview
 
-A lightweight SQL playground built with React that lets you write, execute, and visualize mock SQL queries without a backend.
-
-## ✨ Features
-
-- **Query Editor**: Write SQL in a clean interface
-- **Mock Execution**: Predefined queries with instant results
-- **Dataset Toggle**: Switch between 3 sample datasets
-- **Dark/Light Mode**: Eye-friendly themes
-- **CSV/JSON Export**: Download query results
-- **Query History**: Track past 10 executions
-- **Virtualized Table**: Smooth scrolling for 1000+ rows
+A lightweight React-based SQL playground enabling developers and learners to write, execute, and visualize mock SQL queries directly in the browser without backend infrastructure.
 
 ## 🚀 Live Demo
 
-[![Deploy](https://img.shields.io/badge/View_on-Vercel-black?style=flat&logo=vercel)](https://sql-query-runner-ten.vercel.app/)  
+[![Vercel Deployment](https://img.shields.io/badge/View_on-Vercel-black?style=flat&logo=vercel)](https://sql-query-runner-ten.vercel.app/)
+[![GitHub stars](https://img.shields.io/github/stars/Rahul-web-hub/SQL-Query-Runner?style=social)](https://github.com/Rahul-web-hub/SQL-Query-Runner)
 
+## ✨ Key Features
+
+### Technical Capabilities
+- **Client-Side Query Execution**: Fully standalone query environment
+- **Performance Optimization**: Virtualized table rendering for 1000+ rows
+- **Responsive Design**: Dark/Light mode themes
+- **State Persistence**: Query history tracking
+
+### User-Focused Features
+- Interactive SQL query editor
+- Instant mock query results
+- Multiple dataset switching
+- CSV/JSON result export
+- Smooth, responsive UI
 
 ## 🛠 Tech Stack
 
-- **Frontend**: React 18
-- **Styling**: CSS Modules
-- **Performance**: react-window (virtualization)
-- **State Management**: useState + localStorage
-- **Build Tool**: Vite
+| Technology | Description |
+|-----------|-------------|
+| Frontend | React 18 |
+| Styling | CSS Modules |
+| Virtualization | react-window |
+| State Management | useState + localStorage |
+| Build Tool | Vite |
 
-## 📦 Installation
+## 📦 Quick Start
 
-1. Clone the repo:
-   ```bash
-   git clone https://github.com/Rahul-web-hub/SQL-Query-Runner
+### Prerequisites
+- Node.js (v14+)
+- npm or Yarn
+
+### Installation Steps
+1. Clone the repository
+```bash
+git clone https://github.com/Rahul-web-hub/SQL-Query-Runner.git
+```
+2. Navigate to project directory
+```bash
+cd SQL-Query-Runner
+```
+3. Install dependencies
+```bash
+ npm install
+# or
+yarn install
+```
+4. Start development server
+```bash
+npm run dev
+# or
+yarn dev
+```
+# SQL Query Editor
+
+A lightweight SQL query editor built for learning and experimentation.
+
+## 🖥 Usage
+
+### Writing Queries
+- Use the query editor to write SQL-like commands.
+- Select from predefined datasets.
+- Click "Execute" to see results.
+
+### Data Export
+- Export query results as CSV or JSON.
+- Use the export buttons next to results.
+
+## 🌈 Themes
+- Toggle between dark and light modes.
+- Persistent theme selection via localStorage.
+
+## 🚧 Limitations
+- Mock data only.
+- No actual database connection.
+- Simplified SQL query parsing.
+
+## 🤝 Contributing
+1. Fork the repository.
+2. Create a feature branch.
+3. Commit your changes.
+4. Push to the branch.
+5. Open a Pull Request.
+
+
+
+## 🙌 Acknowledgments
+- Inspired by SQL learning platforms.
+- Built as a frontend internship assignment.
+
+## 🔍 Key Learnings
+- React state management.
+- Performance optimization techniques.
+- Creating interactive web applications.
+- Implementing complex UI components.
+
+## 📊 Performance Insights
+- Virtualized rendering for 1000+ rows.
+- Efficient state management.
+- Minimal re-renders with React hooks.
