@@ -16,7 +16,7 @@ A lightweight SQL playground built with React that lets you write, execute, and 
 
 ## 🚀 Live Demo
 
-[![Deploy](https://img.shields.io/badge/View_on-Vercel-black?style=flat&logo=vercel)](https://your-vercel-link.vercel.app)  
+[![Deploy](https://img.shields.io/badge/View_on-Vercel-black?style=flat&logo=vercel)](https://sql-query-runner-ten.vercel.app/)  
 *(Replace with your actual deployment link)*
 
 ## 🛠 Tech Stack
@@ -31,4 +31,4 @@ A lightweight SQL playground built with React that lets you write, execute, and 
 
 1. Clone the repo:
    ```bash
-   git clone https://github.com/your-username/sql-query-runner.git
+   git clone https://github.com/Rahul-web-hub/SQL-Query-Runner
