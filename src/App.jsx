@@ -11,6 +11,7 @@ import './App.css';
 
 function App() {
   // State management
+  //I have used useState to manage the state of the application.
   const [selectedQuery, setSelectedQuery] = useState(sampleQueries[0]);
   const [editorValue, setEditorValue] = useState(sampleQueries[0].sql);
   const [results, setResults] = useState(sampleQueries[0].result);
@@ -24,7 +25,8 @@ function App() {
   const toggleTheme = useCallback(() => {
     setDarkMode(prevMode => !prevMode);
   }, []);
-
+  
+  // This function will handle the query change
   const handleQueryChange = useCallback((query) => {
     setSelectedQuery(query);
     setEditorValue(query.sql);
@@ -45,11 +47,11 @@ function App() {
 
     setTimeout(() => {
       setResults(selectedQuery.result);
-      setExecTime(Date.now() - startTime);
+      setExecTime(Date.now() - startTime); // Mock execution time
       setIsLoading(false);
       
       setQueryHistory(prev => [
-        ...prev.slice(-9),
+        ...prev.slice(-9), // Keep only the last 10 queries
         {
           id: Date.now(),
           sql: editorValue,
