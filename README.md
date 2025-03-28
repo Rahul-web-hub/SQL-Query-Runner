@@ -1,6 +1,7 @@
 # SQL Query Runner
 
-![Demo GIF](./demo.gif) *(Add a short screen recording if available)*
+![Alt Text](https://drive.google.com/uc?export=view&id=1Arb1_jd7KASAkx8Zg0joAc2Rv4YNorwV)
+
 
 A lightweight SQL playground built with React that lets you write, execute, and visualize mock SQL queries without a backend.
 
