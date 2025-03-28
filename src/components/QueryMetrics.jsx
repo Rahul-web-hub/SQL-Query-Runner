@@ -22,15 +22,6 @@ const QueryMetrics = ({ execTime, rowCount, complexity }) => (
   </div>
 );
 
-/*Mock complexity calculator
-this is just a mock function to calculate the complexity of the query using the keywords present in the query*/
 
-export const calculateComplexity = (query) => {
-  const keywords = ['SELECT', 'FROM', 'WHERE', 'JOIN', 'GROUP BY'];
-  return Math.min(keywords.filter(kw => query.includes(kw)).length, 5);
-};
-
-/* the logic of this code is simple , it justs count how many keywords are there and then return the minimum of the count and 5
-this is done to make sure that the complexity does not exceed 5*/
 
 export default QueryMetrics;

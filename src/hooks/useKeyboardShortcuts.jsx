@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 const useKeyboardShortcuts = (runHandler) => {
   useEffect(() => {
     const handleKeyPress = (e) => {
-      if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+      if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {  // Ctrl+Enter
         runHandler();
       }
     };
