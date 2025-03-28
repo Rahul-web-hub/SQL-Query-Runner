@@ -17,7 +17,7 @@ A lightweight SQL playground built with React that lets you write, execute, and 
 ## 🚀 Live Demo
 
 [![Deploy](https://img.shields.io/badge/View_on-Vercel-black?style=flat&logo=vercel)](https://sql-query-runner-ten.vercel.app/)  
-*(Replace with your actual deployment link)*
+
 
 ## 🛠 Tech Stack
 
