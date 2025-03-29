@@ -63,7 +63,7 @@ function App() {
 
   const handleExport = useCallback((format) => {
     const data = format === 'csv'
-        ? exportToCSV(results.columns, results.rows)  // Now returns raw CSV text
+        ? exportToCSV(results.columns, results.rows) 
         : exportToJSON(results.columns, results.rows);
 
     const blob = new Blob([data], { type: format === 'csv' ? 'text/csv' : 'application/json' });
@@ -74,7 +74,7 @@ function App() {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-    URL.revokeObjectURL(link.href);  // ✅ Cleanup the blob URL
+    URL.revokeObjectURL(link.href);  
 }, [results]);
 
 
