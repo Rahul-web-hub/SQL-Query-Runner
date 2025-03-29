@@ -25,12 +25,10 @@ A React-based SQL playground that simulates query execution with mock data, desi
 | Package | Purpose | Version |
 |---------|---------|---------|
 | `react-window` | Virtualized table rendering | ^3.2.4 |
-| `date-fns` | Timestamp formatting | ^2.29.3 |
-| `localforage` | Persistent storage | ^1.10.0 |
 
 ## ⚡ Performance Metrics
 ### Load Times
-- **Initial Load**: 0.9ms (Desktop) / 1.3s (Mobile)
+- **Initial Load**: 0.9s (Desktop) / 1.3s (Mobile)
 - **1000-row Render**: 150ms
 - **Theme Switch**: <50ms
 
@@ -49,7 +47,7 @@ A React-based SQL playground that simulates query execution with mock data, desi
 
 ## Optimizations Implemented
 ### 1. State Management Efficiency
-```jsx
+```bash
 // Strategic use of useCallback to prevent unnecessary re-renders
 const handleRunQuery = useCallback(() => {
   // Query execution logic
@@ -57,17 +55,19 @@ const handleRunQuery = useCallback(() => {
 
 const toggleTheme = useCallback(() => {
   setDarkMode(prevMode => !prevMode);
-}, []); ```
+}, []);
+```
 
-### Virtualized Rendering
+### 2. Virtualized Rendering
 - Used react-window for efficient table rendering
 - 60% faster scroll performance with 1000+ rows
 
-### Keyboard Shortcut Optimization
+### 3. Keyboard Shortcut Optimization
 ```jsx
-   useKeyboardShortcuts(handleRunQuery);```
+   useKeyboardShortcuts(handleRunQuery);
+```
 
-### Data Structure Design
+### 4. Data Structure Design
 ```bash
 const sampleQueries = [
   {
@@ -76,7 +76,8 @@ const sampleQueries = [
     sql: 'SELECT * FROM users;',
     result: { columns: [...], rows: [...] }
   }
-];```
+];
+```
 
 ## 📦 Installation
 ```bash
@@ -89,7 +90,7 @@ npm install
 # Start development server
 npm run dev
 
-
+```
 ## 🙌 Acknowledgments
 - Inspired by SQL learning platforms.
 - Built as a frontend internship assignment.
