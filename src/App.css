@@ -155,6 +155,8 @@ body {
 /* Query Selection */
 .query-selector-container {
   margin-bottom: var(--spacing-md);
+  max-width: 100%;
+  position: relative;
 }
 
 .query-selector {
@@ -166,6 +168,7 @@ body {
   font-size: 1rem;
   background-color: var(--color-background-secondary);
   transition: all 0.2s ease;
+  box-sizing: border-box;
 }
 
 .query-selector:focus {
@@ -177,20 +180,30 @@ body {
 /* Editor Section */
 .editor-container {
   margin-bottom: var(--spacing-md);
+  width: 100%;
+  position: relative; 
 }
 
 .code-editor {
   width: 100%;
+  min-width: 100%; 
+  max-width: 100%; 
   padding: var(--spacing-sm);
   border: 1px solid var(--color-border);
   border-radius: var(--border-radius-sm);
   font-family: var(--font-family-monospace);
   font-size: 0.9rem;
   min-height: 150px;
+  max-height: 50vh; 
   resize: vertical;
   color: var(--color-text-primary);
   background-color: var(--color-background-secondary);
   transition: all 0.2s ease;
+  box-sizing: border-box; 
+  overflow: auto; /* Handle overflow in both directions */
+  line-height: 1.5; 
+  word-wrap: normal; /* Don't break words unnaturally */
+  white-space: pre; /* Preserve spacing */
 }
 
 .code-editor:focus {
@@ -282,15 +295,20 @@ body {
 
 .table-container {
   overflow-x: auto;
+  max-width: 100%;
   max-height: 400px;
   overflow-y: auto;
   border-radius: var(--border-radius-sm);
+  -webkit-overflow-scrolling: touch; /* Smoother scrolling on iOS */
+  scrollbar-width: thin; /* For Firefox */
 }
 
 .results-table {
   width: 100%;
+  min-width: 100%;
   border-collapse: separate;
   border-spacing: 0;
+  table-layout: auto; /* Allow table to adjust based on content */
 }
 
 .results-table th, 
@@ -298,6 +316,19 @@ body {
   border-bottom: 1px solid var(--color-border);
   padding: var(--spacing-sm);
   text-align: left;
+}
+
+.results-table td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 250px; /* This will  Set a max width for table cells */
+}
+
+
+.results-table td.can-wrap {
+  white-space: normal;
+  word-break: break-word;
 }
 
 .results-table th {
@@ -365,40 +396,267 @@ body {
   text-overflow: ellipsis;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
+/* Improved Table Responsiveness */
+.table-container::-webkit-scrollbar,
+.code-editor::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.table-container::-webkit-scrollbar-thumb,
+.code-editor::-webkit-scrollbar-thumb {
+  background-color: var(--color-border);
+  border-radius: 4px;
+}
+
+/* Prevent content overflow for all elements */
+* {
+  max-width: 100%;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Responsive Breakpoints */
+
+/* Laptop (1024px - 1300px) */
+@media (max-width: 1300px) and (min-width: 1025px) {
+  .app-container {
+    max-width: 90%;
+  }
+}
+
+/* Tablet (768px - 1024px) */
+@media (max-width: 1024px) {
+  .app-container {
+    padding: var(--spacing-md);
+    max-width: 95%;
+  }
+
+  .header-controls {
+    flex-direction: row; /* Keep horizontal on larger tablets */
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    justify-content: space-between;
+  }
+  
+  /* Ensure app title and utility buttons stay on same row when possible */
+  .app-title {
+    flex: 1;
+    font-size: 1.7rem; /* Slightly smaller than desktop */
+  }
+
+  .utility-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+  }
+
+  /* Better export buttons layout */
+  .export-buttons {
+    display: flex;
+    gap: var(--spacing-xs);
+    flex-wrap: wrap;
+  }
+  
+  .export-buttons button {
+    flex: 1;
+    min-width: 80px; /* Prevent buttons from becoming too narrow */
+  }
+
+  .code-editor {
+    min-height: 120px;
+    font-size: 0.85rem;
+  }
+  
+  .table-container {
+    max-height: 350px;
+  }
+}
+
+/* Improved Mobile (up to 767px) */
+@media (max-width: 767px) {
   body {
-    padding: var(--spacing-sm);
-    align-items: stretch;
+    padding: var(--spacing-xs);
+    font-size: 15px;
   }
 
   .app-container {
-    padding: var(--spacing-md);
+    padding: var(--spacing-sm);
+    border-radius: var(--border-radius-sm);
+    margin: 0; /* Remove margin to maximize available space */
     width: 100%;
-    max-width: none;
   }
 
   .header-controls {
     flex-direction: column;
     align-items: flex-start;
+    margin-bottom: var(--spacing-md);
   }
 
+  .app-title {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-xs);
+    width: 100%;
+  }
+
+  /* Stack utility buttons in mobile view */
   .utility-buttons {
+    width: 100%;
+    flex-direction: row; /* Keep horizontal */
+    justify-content: space-between;
+    margin-top: var(--spacing-xs);
+  }
+  
+  /* Better theme toggle layout */
+  .theme-toggle {
+    padding: var(--spacing-xs);
+    flex: 0 0 auto;
+  }
+
+  /* Export buttons in a row */
+  .export-buttons {
+    flex: 1;
+    justify-content: flex-end;
+  }
+  
+  .export-buttons button {
+    padding: var(--spacing-xs);
+    font-size: 0.8rem;
+    flex: 0 1 auto;
+  }
+
+  /* Adjust metrics for mobile */
+  .metrics-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-xs);
+    padding: var(--spacing-xs);
+  }
+
+  .metric-item {
+    padding: var(--spacing-xs);
+  }
+
+  /* Ensure table fits mobile screens */
+  .table-container {
+    max-height: 300px;
+  }
+
+  .results-table th, 
+  .results-table td {
+    padding: var(--spacing-xs);
+    font-size: 0.8rem;
+  }
+
+  /* Adjust code editor for mobile */
+  .code-editor {
+    font-size: 0.8rem;
+    min-height: 100px;
+    padding: var(--spacing-xs);
+  }
+  
+  /* Disable resize on mobile */
+  .code-editor {
+    resize: none;
+  }
+}
+
+/* Small Phones (up to 480px) */
+@media (max-width: 480px) {
+  :root {
+    --spacing-sm: 0.75rem;
+    --spacing-xs: 0.4rem;
+  }
+
+  .app-container {
+    padding: var(--spacing-xs);
+  }
+
+  .app-title {
+    font-size: 1.3rem;
+  }
+  
+  /* Vertically stack utility buttons on very small screens */
+  .utility-buttons {
+    flex-direction: column;
+    gap: var(--spacing-xs);
+  }
+  
+  .export-buttons {
     width: 100%;
     justify-content: space-between;
   }
 
-  .metrics-container {
-    flex-direction: column;
-    gap: var(--spacing-sm);
+  /* Simplify tables on very small screens */
+  .results-table th, 
+  .results-table td {
+    padding: var(--spacing-xs) calc(var(--spacing-xs) / 2);
+    font-size: 0.75rem;
   }
+  
+  /* Hide less important columns on very small screens */
+  .results-table td:nth-child(n+4),
+  .results-table th:nth-child(n+4) {
+    display: none;
+  }
+  
 
-  .table-container {
-    max-height: 300px;
+  .metrics-container {
+    grid-template-columns: 1fr;
+  }
+  
+
+  .run-button {
+    padding: var(--spacing-xs);
+    font-size: 0.9rem;
+  }
+  
+
+  .code-editor {
+    min-height: 80px;
+    font-size: 0.75rem;
+    line-height: 1.4;
+  }
+  
+  /* Query selector adjustments */
+  .query-selector {
+    padding: var(--spacing-xs);
+    font-size: 0.85rem;
+  }
+  
+  /* Hide some table columns if needed */
+  .results-table td:nth-child(3),
+  .results-table th:nth-child(3) {
+    display: none;
   }
 }
 
-/* Animation for smooth transitions */
-* {
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+/* Orientation Handling */
+@media (max-height: 500px) and (orientation: landscape) {
+  .app-container {
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .table-container {
+    max-height: 200px;
+  }
+  
+  /* Adjusted the  code editor for landscape */
+  .code-editor {
+    min-height: 80px;
+    max-height: 150px;
+  }
+}
+
+/* Fix touch target sizes for all screen sizes */
+@media (pointer: coarse) {
+  /* Larger tap targets for mobile */
+  button, 
+  .theme-toggle,
+  .export-buttons button,
+  .query-selector,
+  select {
+    min-height: 44px;
+    min-width: 44px; 
+  }
 }
