@@ -63,15 +63,20 @@ function App() {
 
   const handleExport = useCallback((format) => {
     const data = format === 'csv'
-      ? exportToCSV(results.columns, results.rows)
-      : exportToJSON(results.columns, results.rows);
-    
-    const blob = new Blob([data], { type: `text/${format}` });
+        ? exportToCSV(results.columns, results.rows)  // Now returns raw CSV text
+        : exportToJSON(results.columns, results.rows);
+
+    const blob = new Blob([data], { type: format === 'csv' ? 'text/csv' : 'application/json' });
+
     const link = document.createElement('a');
     link.href = URL.createObjectURL(blob);
     link.download = `query_result.${format}`;
+    document.body.appendChild(link);
     link.click();
-  }, [results]);
+    document.body.removeChild(link);
+    URL.revokeObjectURL(link.href);  // ✅ Cleanup the blob URL
+}, [results]);
+
 
   // Initialize dark mode and keyboard shortcuts
   useEffect(() => {
