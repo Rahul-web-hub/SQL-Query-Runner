@@ -6,7 +6,7 @@ export const exportToCSV = (columns, rows) => {
       ...rows.map(row => row.join(',')) // Join each row's values
   ].join('\n');
 
-  return csvContent;  // ✅ Return raw CSV data instead of a Blob URL
+  return csvContent;  // Here I have returned  raw CSV data instead of a Blob URL 
 };
 
   export const exportToJSON = (columns, rows) => {
