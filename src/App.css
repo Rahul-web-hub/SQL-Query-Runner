@@ -1,3 +1,4 @@
+/* I have used variables to define the property as I have learnt in my previous internship , also it makes the debugging faster*/
 :root {
   /* Light Mode Colors */
   --color-background-primary: #ffffff;
@@ -138,7 +139,7 @@ body {
 .export-buttons button {
   background-color: var(--color-background-table-header);
   border: 1px solid var(--color-border);
-  color: var(--color-text-primary); /* Add text color */
+  color: var(--color-text-primary); 
   padding: var(--spacing-xs) var(--spacing-sm);
   border-radius: var(--border-radius-sm);
   cursor: pointer;
@@ -200,10 +201,10 @@ body {
   background-color: var(--color-background-secondary);
   transition: all 0.2s ease;
   box-sizing: border-box; 
-  overflow: auto; /* Handle overflow in both directions */
+  overflow: auto; 
   line-height: 1.5; 
-  word-wrap: normal; /* Don't break words unnaturally */
-  white-space: pre; /* Preserve spacing */
+  word-wrap: normal;
+  white-space: pre; 
 }
 
 .code-editor:focus {
@@ -299,8 +300,8 @@ body {
   max-height: 400px;
   overflow-y: auto;
   border-radius: var(--border-radius-sm);
-  -webkit-overflow-scrolling: touch; /* Smoother scrolling on iOS */
-  scrollbar-width: thin; /* For Firefox */
+  -webkit-overflow-scrolling: touch; /* This will provide smoother scrolling for IOS */
+  scrollbar-width: thin; 
 }
 
 .results-table {
